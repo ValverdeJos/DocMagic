@@ -24,7 +24,7 @@ class FileUploader(tk.Frame):
         self.upload_button.pack(side="left", padx=10)
 
         self.file_image = tk.Label(self)
-        self.file_image.pack(side="top", pady=10)
+        self.file_image.pack(side="top", pady=20)
 
         """ self.text_Path = tk.Label(self)
         self.text_Path.pack() """
@@ -52,16 +52,32 @@ class FileUploader(tk.Frame):
             #self.text_Path.config(text=file_path)
             self.file_image.image = photo # Garder une référence à l'image pour éviter qu'elle ne soit effacée par le garbage collector
             #self.text_Path.text = file_path
+        elif file_extension == ".pdf":
+            image_path = "C:\\Users\\josel\\OneDrive\\Documents\\GitHub\\Hivy\\PubExporterPdf\\assets\\Pdf.png" # remplacez "chemin/vers/icon/pub.png" par le chemin vers l'icône du fichier pub
+            image = Image.open(image_path)
+            image = image.resize((100, 100), Image.ANTIALIAS) # Redimensionner l'image
+            photo = ImageTk.PhotoImage(image)
+            self.file_image.config(image=photo)
+            #self.text_Path.config(text=file_path)
+            self.file_image.image = photo # Garder une référence à l'image pour éviter qu'elle ne soit effacée par le garbage collector
+            #self.text_Path.text = file_path
 
             
 
        
 
     def runcode(self):
-        # votre code ici qui utilise le fichier choisi
-        try:
-            ConverterPDF.get_pdf_pages_from_pub(pub_location=file_path)
-        except:
-            messagebox.showerror('file_path esta :', 'Vazio')
+        
+        _, file_extension = os.path.splitext(file_path)
+        if file_extension == ".pub":
+            try:
+                ConverterPDF.get_pdf_pages_from_pub(pub_location=file_path)
+            except:
+                messagebox.showerror('file_path esta :', 'Vazio')
+        elif file_extension == ".pdf":
+            try:
+                ConverterPDF.cut_pdf_to_pages(path_PDF=file_path)
+            except:
+                messagebox.showerror('file_path esta :', 'Vazio')
 
 

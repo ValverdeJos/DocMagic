@@ -35,7 +35,7 @@ def convert_pub_to_pdf(input_file: str, pdf_folder: str) -> str:
     
     return pdf_path
 
-def cut_pdf_to_pages(path_PDF):
+def cut_pdf_to_pages(path_PDF=pdf_Global):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
