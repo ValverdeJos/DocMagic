@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import win32com.client
 from PyPDF2 import  PdfReader, PdfWriter
 
@@ -95,7 +96,16 @@ def extra_Text_Pdf(file):
     os.rename(file, Way_return_pdf)
 
     
+def test():
+    
 
+    # Créer un nouveau dossier sur le bureau de l'utilisateur
+    
+
+    desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
+    os.chdir(desktop_path)
+    print(desktop_path)
+    
 
 def get_pdf_pages_from_pub(pub_location=input_fileGlobal, save_pdf_location=pdf_folderGlobal):
     pdf_path = convert_pub_to_pdf(pub_location, save_pdf_location)
@@ -103,4 +113,5 @@ def get_pdf_pages_from_pub(pub_location=input_fileGlobal, save_pdf_location=pdf_
 
 
 if __name__ == "__main__":
-    get_pdf_pages_from_pub()
+    """ get_pdf_pages_from_pub() """
+    test()
