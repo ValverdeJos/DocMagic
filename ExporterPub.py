@@ -73,14 +73,27 @@ def extra_Text_Pdf(file):
     pdf_reader_extra_Text_and_Image = PdfReader(pdf_file_extra_Text_and_Image)
 
     meta = pdf_reader_extra_Text_and_Image.metadata
-
-    print(meta.title)
+    
     text=''
     for page in range(1):
         text += pdf_reader_extra_Text_and_Image.pages[page].extract_text()
-    print(text)
+    first_line=text.splitlines()[0]
+    name_Title_PDF= first_line.split("|")
+    counter = 0
+    while True:
+        if counter == 0:
+            Way_return_pdf = f"{output_folder}\\{name_Title_PDF[0]}.pdf"
+        else:
+            Way_return_pdf = f"{output_folder}\\{name_Title_PDF[0]}_{counter}.pdf"
+        
+        if not os.path.exists(Way_return_pdf):
+            break
+        counter += 1
+    print(Way_return_pdf)
     
     pdf_file_extra_Text_and_Image.close()
+    os.rename(file, Way_return_pdf)
+
     
 
 
