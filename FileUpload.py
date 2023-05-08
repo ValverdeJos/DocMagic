@@ -48,7 +48,6 @@ class FileUploader(ttk.Frame):
         file_path = filedialog.askopenfilename()
         print("Le fichier sélectionné est :", file_path)
         _, file_extension = os.path.splitext(file_path)
-        print(file_extension)
         if file_extension == ".pub":
             image_path = "C:\\Users\\josel\\OneDrive\\Documents\\GitHub\\Hivy\\PubExporterPdf\\assets\Pub.png" 
             image = Image.open(image_path)
@@ -59,7 +58,9 @@ class FileUploader(ttk.Frame):
             self.file_image.image = photo 
             #self.text_Path.text = file_path
         elif file_extension == ".pdf":
-            image_path = "C:\\Users\\josel\\OneDrive\\Documents\\GitHub\\Hivy\\PubExporterPdf\\assets\\Pdf.png" 
+            image_path = os.path.abspath("../GitHub/PubExporterPdf/assets/Pdf.png")
+            print(image_path)
+            """ image_path = "assets/Pdf.png" """ 
             image = Image.open(image_path)
             image = image.resize((100, 100), Image.ANTIALIAS) 
             photo = ImageTk.PhotoImage(image)
@@ -67,6 +68,7 @@ class FileUploader(ttk.Frame):
             #self.text_Path.config(text=file_path)
             self.file_image.image = photo 
             #self.text_Path.text = file_path
+            
 
             
 
