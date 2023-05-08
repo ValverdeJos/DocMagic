@@ -116,5 +116,5 @@ def get_pdf_pages_from_pub(pub_location=input_fileGlobal, save_pdf_location=pdf_
 
 
 if __name__ == "__main__":
-    """ get_pdf_pages_from_pub() """
-    test()
+    get_pdf_pages_from_pub()
+    
