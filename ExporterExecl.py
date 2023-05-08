@@ -1,5 +1,5 @@
 import os
-
+from PyPDF2 import  PdfReader, PdfWriter
 import win32com.client 
 
 
@@ -25,21 +25,44 @@ def convert_exl_to_pdf(input_file: str, pdf_folder: str) -> str:
     workbook.save(pdf_Global)
     jpype.shutdownJVM()
 
+def cut_pdf_to_pages(path_PDF=pdf_Global):
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
 
-def get_pdf_pages_from_pub(pub_location=input_fileGlobal, save_pdf_location=pdf_folderGlobal):
+    with open(path_PDF, 'rb') as pdf_file:
+        # Criar un letor de Pdf
+        pdf_reader = PdfReader(pdf_file)
+
+        # Obter todas as Paginas
+        num_pages = len(pdf_reader.pages)
+        print(num_pages)
+        for page_num in range(num_pages):
+            # Criar un escritor de Pdf
+            pdf_writer = PdfWriter()
+
+            # Obter a pagina
+            page = pdf_reader.pages[page_num]
+
+            
+            # Adicionar a pagina o escritor PDF
+            pdf_writer.add_page(page)
+
+            # Criar um Novo Ficheiro PDF
+            new_file_name = 'page' + str(page_num) + '.pdf'
+            new_file = open(os.path.join(output_folder, new_file_name), 'wb')
+            pdf_writer.write(new_file)
+            new_file.close()
+
+    
+            print(page_num)
+  
+
+def get_pdf_pages_from_Excel(pub_location=input_fileGlobal, save_pdf_location=pdf_folderGlobal):
     convert_exl_to_pdf(pub_location, save_pdf_location)
+    cut_pdf_to_pages()
     
 
 
-    
-    
-
-   
 
 
-
-
-
-if __name__ == "__main__":
-    convert_exl_to_pdf()
    

@@ -3,10 +3,12 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
 import ExporterPub as ConverterPDF
+import ExporterExecl as ConverterExcel
 from PIL import Image, ImageTk
 import tkinter.font as tkFont
 from tkinter import ttk
 
+extention=[".xls",".xlsm",".xlsx",".xlt",".xlsb",".xltx",".xltm"]
 
 class FileUploader(ttk.Frame):
     def __init__(self, master=None):
@@ -87,5 +89,14 @@ class FileUploader(ttk.Frame):
                 ConverterPDF.cut_pdf_to_pages(path_PDF=file_path)
             except:
                 messagebox.showerror('file_path esta :', 'Vazio')
+        elif file_extension in extention :
+            if file_path:
+                try:
+                    ConverterExcel.get_pdf_pages_from_Excel(pub_location=file_path)
+                except:
+                    messagebox.showerror('file_path esta :', 'Vazio')
+            else:
+                messagebox.showerror('Erro', 'Não é um fichiero Excel.')
+
 
 
