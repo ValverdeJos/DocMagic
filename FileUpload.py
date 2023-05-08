@@ -71,6 +71,17 @@ class FileUploader(ttk.Frame):
             #self.text_Path.config(text=file_path)
             self.file_image.image = photo 
             #self.text_Path.text = file_path
+        elif file_extension in extention:
+            image_path = os.path.abspath("PubExporterPdf/assets/XLs.png")
+            print(image_path)
+            """ image_path = "assets/Pdf.png" """ 
+            image = Image.open(image_path)
+            image = image.resize((100, 100), Image.ANTIALIAS) 
+            photo = ImageTk.PhotoImage(image)
+            self.file_image.config(image=photo)
+            #self.text_Path.config(text=file_path)
+            self.file_image.image = photo 
+            #self.text_Path.text = file_path
             
 
             

@@ -102,6 +102,4 @@ def get_pdf_pages_from_pub(pub_location=input_fileGlobal, save_pdf_location=pdf_
     cut_pdf_to_pages(pdf_path)
 
 
-if __name__ == "__main__":
-    get_pdf_pages_from_pub()
     
