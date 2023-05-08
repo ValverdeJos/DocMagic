@@ -3,10 +3,14 @@ from pathlib import Path
 import win32com.client
 from PyPDF2 import  PdfReader, PdfWriter
 
+desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
+os.chdir(desktop_path)
+
+
 input_fileGlobal = "C:\\Users\\josel\\OneDrive\\Bureau\\ProjectExporterPub\\FICHASTECNICAS2023.pub"
-output_folder = "C:\\Users\\josel\\OneDrive\\Bureau\\PdfExported\\pages"
-pdf_folderGlobal = "C:\\Users\\josel\\OneDrive\\Bureau\\PdfExported"
-pdf_Global = "C:\\Users\\josel\\OneDrive\\Bureau\\PdfExported\\final.pdf"
+pdf_folderGlobal = desktop_path+"\\PdfsExported"
+pdf_Global = pdf_folderGlobal+"\\GlobalPDF.pdf"
+output_folder = pdf_folderGlobal +"\\pages"
 
 def convert_pub_to_pdf(input_file: str, pdf_folder: str) -> str:  
     if not os.path.exists(pdf_folder):
@@ -20,7 +24,7 @@ def convert_pub_to_pdf(input_file: str, pdf_folder: str) -> str:
     # Export each page to a separate PDF file
 
     # Create a file name for the PDF
-    pdf_name = "final.pdf"
+    pdf_name = "GlobalPDF.pdf"
     pdf_path = os.path.join(pdf_folder, pdf_name)
 
     # Export the current page to PDF
@@ -97,14 +101,13 @@ def extra_Text_Pdf(file):
 
     
 def test():
-    
-
     # Créer un nouveau dossier sur le bureau de l'utilisateur
+    print(pdf_folderGlobal)
+    print(pdf_Global)
+    print(output_folder)
     
 
-    desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
-    os.chdir(desktop_path)
-    print(desktop_path)
+
     
 
 def get_pdf_pages_from_pub(pub_location=input_fileGlobal, save_pdf_location=pdf_folderGlobal):
