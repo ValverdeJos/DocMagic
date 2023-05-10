@@ -20,7 +20,7 @@ class FileUploader(ttk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
-        self.master.title("Interface utilisateur")
+        self.master.title("DocMagic")
         self.master.geometry('300x250')
         self.checkbox_var = tk.BooleanVar()
         self.checkbox_var.set(False)
