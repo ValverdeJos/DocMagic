@@ -5,7 +5,6 @@ from FileUpload import FileUploader
 
 
 app = tk.Tk()
-
 app = FileUploader(master=app) 
 app.mainloop()
 

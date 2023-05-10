@@ -30,7 +30,8 @@ def convert_pub_to_pdf(input_file: str, pdf_folder: str) -> str:
     try:
         document.ExportAsFixedFormat(2, pdf_path)
     except:
-        print("Error in Exporting Pdf")
+        pass
+        # print("Error in Exporting Pdf")
 
    
     # Fechar o Document e o Publisher
@@ -49,7 +50,7 @@ def cut_pdf_to_pages(path_PDF=pdf_Global):
 
         # Obter todas as Paginas
         num_pages = len(pdf_reader.pages)
-        print(num_pages)
+        # print(num_pages)
         for page_num in range(num_pages):
             # Criar un escritor de Pdf
             pdf_writer = PdfWriter()
@@ -70,7 +71,7 @@ def cut_pdf_to_pages(path_PDF=pdf_Global):
 
     
             extra_Text_Pdf(Way_single_pdf)
-            print(page_num)
+            # print(page_num)
             
 def extra_Text_Pdf(file):
     text=''
@@ -92,7 +93,7 @@ def extra_Text_Pdf(file):
         if not os.path.exists(Way_return_pdf):
             break
         counter += 1
-    print(Way_return_pdf)
+    # print(Way_return_pdf)
     
     pdf_file_extra_Text_and_Image.close()
     os.rename(file, Way_return_pdf)

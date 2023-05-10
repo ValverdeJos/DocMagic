@@ -3,12 +3,12 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
 import ExporterPub as ConverterPDF
-import ExporterExecl as ConverterExcel
+#import ExporterExecl as ConverterExcel
 from PIL import Image, ImageTk
 import tkinter.font as tkFont
 from tkinter import ttk
 
-extention=[".xls",".xlsm",".xlsx",".xlt",".xlsb",".xltx",".xltm"]
+#extention=[".xls",".xlsm",".xlsx",".xlt",".xlsb",".xltx",".xltm"]
 
 class FileUploader(ttk.Frame):
     def __init__(self, master=None):
@@ -48,7 +48,7 @@ class FileUploader(ttk.Frame):
     def upload_file(self):
         global file_path
         file_path = filedialog.askopenfilename()
-        print("Le fichier sélectionné est :", file_path)
+        # print("Le fichier sélectionné est :", file_path)
         _, file_extension = os.path.splitext(file_path)
         if file_extension == ".pub":
             image_path = os.path.abspath("PubExporterPdf/assets/Pub.png")
@@ -62,7 +62,7 @@ class FileUploader(ttk.Frame):
             #self.text_Path.text = file_path
         elif file_extension == ".pdf":
             image_path = os.path.abspath("PubExporterPdf/assets/Pdf.png")
-            print(image_path)
+            # print(image_path)
             """ image_path = "assets/Pdf.png" """ 
             image = Image.open(image_path)
             image = image.resize((100, 100), Image.ANTIALIAS) 
@@ -71,17 +71,17 @@ class FileUploader(ttk.Frame):
             #self.text_Path.config(text=file_path)
             self.file_image.image = photo 
             #self.text_Path.text = file_path
-        elif file_extension in extention:
+        """  elif file_extension in extention:
             image_path = os.path.abspath("PubExporterPdf/assets/XLs.png")
-            print(image_path)
-            """ image_path = "assets/Pdf.png" """ 
+            # print(image_path)
+            #image_path = "assets/Pdf.png" 
             image = Image.open(image_path)
             image = image.resize((100, 100), Image.ANTIALIAS) 
             photo = ImageTk.PhotoImage(image)
             self.file_image.config(image=photo)
             #self.text_Path.config(text=file_path)
             self.file_image.image = photo 
-            #self.text_Path.text = file_path
+            #self.text_Path.text = file_path """
             
 
             
@@ -100,14 +100,14 @@ class FileUploader(ttk.Frame):
                 ConverterPDF.cut_pdf_to_pages(path_PDF=file_path)
             except:
                 messagebox.showerror('file_path esta :', 'Vazio')
-        elif file_extension in extention :
+        """         elif file_extension in extention :
             if file_path:
                 try:
                     ConverterExcel.get_pdf_pages_from_Excel(pub_location=file_path)
                 except:
                     messagebox.showerror('file_path esta :', 'Vazio')
             else:
-                messagebox.showerror('Erro', 'Não é um fichiero Excel.')
+                messagebox.showerror('Erro', 'Não é um fichiero Excel.') """
 
 
 

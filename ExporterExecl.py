@@ -1,10 +1,8 @@
 import os
 from PyPDF2 import  PdfReader, PdfWriter
-import win32com.client 
 
 
-import  jpype     
-import  asposecells     
+import  jpype        
 jpype.startJVM() 
 from asposecells.api import Workbook
 
@@ -35,7 +33,7 @@ def cut_pdf_to_pages(path_PDF=pdf_Global):
 
         # Obter todas as Paginas
         num_pages = len(pdf_reader.pages)
-        print(num_pages)
+        # print(num_pages)
         for page_num in range(num_pages):
             # Criar un escritor de Pdf
             pdf_writer = PdfWriter()
@@ -54,7 +52,7 @@ def cut_pdf_to_pages(path_PDF=pdf_Global):
             new_file.close()
 
     
-            print(page_num)
+            # print(page_num)
   
 
 def get_pdf_pages_from_Excel(pub_location=input_fileGlobal, save_pdf_location=pdf_folderGlobal):
