@@ -102,5 +102,8 @@ def get_pdf_pages_from_pub(pub_location=input_fileGlobal, save_pdf_location=pdf_
     pdf_path = convert_pub_to_pdf(pub_location, save_pdf_location)
     cut_pdf_to_pages(pdf_path)
 
+def get_pdf_SimplePage_from_pub(pub_location=input_fileGlobal, save_pdf_location=pdf_folderGlobal):
+    convert_pub_to_pdf(pub_location, save_pdf_location)
+    
 
     
