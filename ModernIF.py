@@ -172,7 +172,6 @@ class App(customtkinter.CTk):
                     messagebox.showerror('Erro', 'Não é um fichiero Excel.')
 
     def CheckText(self):
-        print(self.checkbox_var.get())
         if self.checkbox_var.get() == False:
             self.checkbox_1.configure(text='Pdf Separados OFF')
         else:
