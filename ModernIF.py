@@ -25,7 +25,7 @@ class App(customtkinter.CTk):
         self.image_path = ""
         self.icon_image = tkinter.PhotoImage(file=self.image_path)
         self.checkbox_var = customtkinter.BooleanVar()
-        self.checkbox_var.set(False)
+        self.checkbox_var.set(True)
 
         # configure grid layout (4x4)
         self.grid_columnconfigure(1, weight=1)
@@ -64,7 +64,7 @@ class App(customtkinter.CTk):
         self.scaling_optionemenu.grid(row=8, column=0, padx=20, pady=(10, 20))
 
         # create checkbox and switch frame
-        self.checkbox_1 = customtkinter.CTkCheckBox(master=self.sidebar_frame,text="Pdf Separados",variable=self.checkbox_var,onvalue=True, offvalue=False)
+        self.checkbox_1 = customtkinter.CTkCheckBox(master=self.sidebar_frame,text="Pdf Separados ON",variable=self.checkbox_var,onvalue=True, offvalue=False,command=self.CheckText)
         self.checkbox_1.grid(row=4, column=0, pady=(20, 0), padx=20, sticky="n")
 
 
@@ -128,7 +128,7 @@ class App(customtkinter.CTk):
         _, file_extension = os.path.splitext(file_path)
         
         if file_extension == ".pub":
-            if self.checkbox_var.get() == 1:
+            if self.checkbox_var.get() == True:
 
                 try:
                     ConverterPDF.get_pdf_pages_from_pub(pub_location=file_path)
@@ -152,7 +152,7 @@ class App(customtkinter.CTk):
 
         elif file_extension in extention :
 
-            if self.checkbox_var.get() == 1:
+            if self.checkbox_var.get() == True:
 
                 if file_path:
                     try:
@@ -171,6 +171,11 @@ class App(customtkinter.CTk):
                 else:
                     messagebox.showerror('Erro', 'Não é um fichiero Excel.')
 
-
-
+    def CheckText(self):
+        print(self.checkbox_var.get())
+        if self.checkbox_var.get() == False:
+            self.checkbox_1.configure(text='Pdf Separados OFF')
+        else:
+            self.checkbox_1.configure(text='Pdf Separados ON')
+        
 
