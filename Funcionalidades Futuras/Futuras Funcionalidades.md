@@ -1,8 +1,9 @@
 # Futuras Funcionalidades
 
 1. Adicionar opções de conversão adicionais: você pode adicionar opções para converter outros formatos de arquivo, como Word, PowerPoint, imagens, etc. Isso tornará sua aplicação mais versátil e útil para um número maior de usuários.
-<div>
+<div align="center">
   <img src="../assets/Word.png" alt="Word Logo" width=150 heigth=150>
+  <img src="../assets/Powerpoint.png" alt="Power Logo" width=150 heigth=150>
 </div>
 
 3. Adicionar uma interface gráfica do usuário: você pode criar uma interface gráfica do usuário para sua aplicação para que os usuários possam selecionar facilmente os arquivos a serem convertidos e as opções de conversão. Isso tornará sua aplicação mais amigável e fácil de usar.
