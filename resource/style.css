@@ -1,0 +1,44 @@
+
+#upload{
+    font-family: 'Open Sans';
+    font-size: 15px;
+    border-radius: 10px;
+    color: white;
+    background: rgb(87, 87, 167);
+}
+#confirm{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    border-radius: 10px;
+    color: white;
+    background: rgb(87, 87, 167);
+}
+#checkBoxSplit::indicator {
+    width: 20px;
+    height: 20px;
+}
+
+#Feature{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    color: rgb(99, 152, 196);
+}
+
+#checkBoxSplit::indicator:unchecked {
+    background-color: #fff;
+    border: 2px solid rgb(87, 87, 167);
+    border-radius: 5px;
+}
+
+#checkBoxSplit::indicator:checked {
+    background-color: rgb(87, 87, 167);
+    border: 2px solid rgb(87, 87, 167);
+    border-radius: 5px;
+    image: url(PubExporterPdf/assets/Myproject.png)
+}
+
+#checkBoxSplit::indicator:checked:disabled {
+    background-color: #aaa;
+    border: 2px solid #aaa;
+}
+
