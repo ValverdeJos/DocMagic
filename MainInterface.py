@@ -2,16 +2,14 @@
 import os
 import sys
 from tkinter import filedialog
-from PyQt5.QtCore import Qt, QRect
-from PyQt5.QtGui import QIcon, QPainter, QImage, QBrush, QColor, QFont,QPixmap
-from PyQt5.QtWidgets import QApplication, QFrame, QStackedWidget, QHBoxLayout, QLabel,QPushButton,QCheckBox
 import qtawesome as qta
 import ExporterPub as ConverterPDF
 import ExporterExecl as ConverterExcel
 
-
-from qfluentwidgets import (NavigationInterface, NavigationItemPosition, NavigationWidget, MessageBox,
-                            isDarkTheme, setTheme, Theme)
+from PyQt5.QtCore import Qt, QRect
+from PyQt5.QtGui import QIcon, QPainter, QImage, QBrush, QColor, QFont,QPixmap
+from PyQt5.QtWidgets import QApplication, QFrame, QStackedWidget, QHBoxLayout, QLabel,QPushButton,QCheckBox
+from qfluentwidgets import (NavigationInterface, NavigationItemPosition, NavigationWidget, MessageBox, isDarkTheme, setTheme, Theme)
 from qfluentwidgets import FluentIcon as FIF
 from qframelesswindow import FramelessWindow, StandardTitleBar
 
@@ -28,7 +26,6 @@ class Widget(QFrame):
         self.hBoxLayout = QHBoxLayout(self)
         self.hBoxLayout.addWidget(self.label, 1, Qt.AlignCenter)
         self.setObjectName(text.replace(' ', '-'))
-
 
 class AvatarWidget(NavigationWidget):
     """ Avatar widget """
@@ -66,7 +63,6 @@ class AvatarWidget(NavigationWidget):
             font.setPixelSize(14)
             painter.setFont(font)
             painter.drawText(QRect(44, 0, 255, 36), Qt.AlignVCenter, 'User')
-
 
 class Window(FramelessWindow):
 
@@ -130,9 +126,6 @@ class Window(FramelessWindow):
         self.initNavigation()
 
         self.initWindow()
-
-
-
 
     def initLayout(self):
         self.hBoxLayout.setSpacing(0)
@@ -219,7 +212,6 @@ class Window(FramelessWindow):
         with open(f'{desktop_path}\\PubExporterPdf\\resource\\{color}\\demo.qss', encoding='utf-8') as f:
             self.setStyleSheet(f.read())
 
-
     def switchTo(self, widget):
         self.stackWidget.setCurrentWidget(widget)
 
@@ -285,9 +277,7 @@ class Window(FramelessWindow):
             self.excelInterface.setHidden(True)
             self.pdfInterface.setHidden(True)
             self.textBreve.setHidden(True)
-            
-            
-          
+              
     def showMessageBox(self):
         w = MessageBox(
             'New feature ',
@@ -378,7 +368,6 @@ class Window(FramelessWindow):
                 else:
                     self.MessageErrorExecl.exec()
         
-
 if __name__ == '__main__':
     
     QApplication.setHighDpiScaleFactorRoundingPolicy(
