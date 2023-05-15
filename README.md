@@ -9,6 +9,10 @@
 
 DocMagic is an application that allows you to easily convert various types of Office and Publisher files to PDF format. With a user-friendly interface and powerful features, DocMagic simplifies the conversion process while preserving the original formatting of your documents. The application supports popular Office file formats such as Word documents, PowerPoint presentations, Excel spreadsheets, as well as Publisher files.
 
+<div align="center">
+  <img src="resource/App.png" alt="Interface App">
+</div>
+
 ## Key Features
 
 
