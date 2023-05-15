@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 import win32com.client
 from PyPDF2 import  PdfReader, PdfWriter
 
