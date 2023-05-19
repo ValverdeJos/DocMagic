@@ -33,7 +33,7 @@ class AvatarWidget(NavigationWidget):
 
     def __init__(self, parent=None):
         super().__init__(isSelectable=False, parent=parent)
-        self.avatar = QImage(f'{desktop_path}\\PubExporterPdf\\resource\\shoko.png').scaled(
+        self.avatar = QImage(f'{desktop_path}\\DocMagic-main\\resource\\shoko.png').scaled(
             24, 24, Qt.KeepAspectRatio, Qt.SmoothTransformation)
 
     def paintEvent(self, e):
@@ -84,7 +84,7 @@ class Window(FramelessWindow):
 
         # Ajouter un QLabel pour l'image
         self.imageLabel = QLabel(self)
-        self.imageLabel.setPixmap(QPixmap(f"{desktop_path}\\PubExporterPdf\\resource\\assets\\Xls.png").scaled(200, 200))
+        self.imageLabel.setPixmap(QPixmap(f"{desktop_path}\\DocMagic-main\\resource\\assets\\Xls.png").scaled(200, 200))
         self.imageLabel.move(350, 170)
         self.imageLabel.resize(300, 300)
 
@@ -107,7 +107,7 @@ class Window(FramelessWindow):
         self.checkBoxSplit.stateChanged.connect(self.CheckText)
 
 
-        with open(f"{desktop_path}\\PubExporterPdf\\resource\\style.css", "r") as f:
+        with open(f"{desktop_path}\\DocMagic-main\\resource\\style.css", "r") as f:
             style_sheet = f.read()
         self.setStyleSheet(style_sheet)
 
@@ -178,7 +178,7 @@ class Window(FramelessWindow):
     def initWindow(self):
         
         self.resize(900, 700)
-        self.setWindowIcon(QIcon('f"{desktop_path}\\PubExporterPdf\\resource\\LogoPng.png'))
+        self.setWindowIcon(QIcon('f"{desktop_path}\\DocMagic-main\\resource\\LogoPng.png'))
         self.setWindowTitle('DocMagic')
         self.titleBar.setAttribute(Qt.WA_StyledBackground)
 
@@ -210,7 +210,7 @@ class Window(FramelessWindow):
     def setQss(self):
 
         color = 'dark' if isDarkTheme() else 'light'
-        with open(f'{desktop_path}\\PubExporterPdf\\resource\\{color}\\demo.qss', encoding='utf-8') as f:
+        with open(f'{desktop_path}\\DocMagic-main\\resource\\{color}\\demo.qss', encoding='utf-8') as f:
             self.setStyleSheet(f.read())
 
     def switchTo(self, widget):
@@ -221,10 +221,10 @@ class Window(FramelessWindow):
         arrayName = widget.objectName()
         Name = arrayName.split('-')
         pathImages={
-            "Excel": f"{desktop_path}\\PubExporterPdf\\assets\\Xls.png",
-            "Publisher": f"{desktop_path}\\PubExporterPdf\\assets\\Pub.png",
-            "PDF": f"{desktop_path}\\PubExporterPdf\\assets\\Pdf.png",
-            "Word": f"{desktop_path}\\PubExporterPdf\\assets\\Word.png"
+            "Excel": f"{desktop_path}\\DocMagic-main\\assets\\Xls.png",
+            "Publisher": f"{desktop_path}\\DocMagic-main\\assets\\Pub.png",
+            "PDF": f"{desktop_path}\\DocMagic-main\\assets\\Pdf.png",
+            "Word": f"{desktop_path}\\DocMagic-main\\assets\\Word.png"
             }
 
 
