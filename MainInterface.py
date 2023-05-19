@@ -5,6 +5,7 @@ from tkinter import filedialog
 import qtawesome as qta
 import ExporterPub as ConverterPDF
 import ExporterExecl as ConverterExcel
+import ExporterWord as ConverterWord
 
 from PyQt5.QtCore import Qt, QRect
 from PyQt5.QtGui import QIcon, QPainter, QImage, QBrush, QColor, QFont,QPixmap
@@ -232,14 +233,7 @@ class Window(FramelessWindow):
 
         if Name[1] in pathImages:
             pathImage = pathImages[Name[1]]
-            self.imageLabel.setPixmap(QPixmap(pathImage).scaled(200,200))
-            if Name[1] == "Word":
-                self.Feature = MessageBox(
-                    'New Feature',
-                    'Está feature vai estar brevement disponivel 😉',
-                    self
-                )
-                self.Feature.exec()  
+            self.imageLabel.setPixmap(QPixmap(pathImage).scaled(200,200)) 
             self.textBreve = QLabel("Funcionalidade Brevemente disponivel", self) 
             self.textBreve.resize(300, 30)
             self.textBreve.move(350,500)
@@ -262,12 +256,6 @@ class Window(FramelessWindow):
             self.textBreve.setHidden(True)
             self.checkBoxSplit.setHidden(True)
 
-        elif index == 3:
-            self.wordInterface.setHidden(False)
-            self.upload.setHidden(True)
-            self.confirm.setHidden(True)
-            self.textBreve.setHidden(False)
-            self.checkBoxSplit.setHidden(True)
 
         else:
             self.upload.setHidden(False)
@@ -276,6 +264,7 @@ class Window(FramelessWindow):
             self.pubInterface.setHidden(True)
             self.excelInterface.setHidden(True)
             self.pdfInterface.setHidden(True)
+            self.wordInterface.setHidden(True)
             self.textBreve.setHidden(True)
               
     def showMessageBox(self):
@@ -363,6 +352,26 @@ class Window(FramelessWindow):
                     try:
                         ConverterExcel.get_pdf_SimplePage_from_Excel()
                         self.MessageNoSplit.exec()
+                    except:
+                        self.MessageError.exec()
+                else:
+                    self.MessageErrorExecl.exec()
+        elif file_extension == ".docx":
+            if self.checkBoxSplit.isChecked():
+
+                if file_path:
+                    try:
+                        ConverterWord.get_pdf_pages_from_Word(pub_location=file_path)
+                        self.MessageSplit.exec()
+                    except:
+                        self.MessageError.exec()
+                else:
+                    self.MessageErrorExecl.exec()
+            else:
+                if file_path:
+                    try:
+                        ConverterWord.get_pdf_SimplePage_from_Word(pub_location=file_path)
+                        self.MessageSplit.exec()
                     except:
                         self.MessageError.exec()
                 else:
