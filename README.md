@@ -44,7 +44,7 @@ DocMagic is an application that allows you to easily convert various types of Of
   Install the required dependencies by running the following command:
 
 ```bash
-pip install PyQt5 PyPDF2 pywin32 qfluentwidgets qtawesome pyinstaller
+pip install PyQt5 PyPDF2 pywin32 qtawesome pyinstaller
 ```
 ```bash
 pip install "PyQt-Fluent-Widgets[full]" -i https://pypi.org/simple/
